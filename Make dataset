@@ -1,0 +1,25 @@
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import classification_report
+from xgboost import XGBClassifier
+
+X_num=df[['blueWardsPlaced', 'blueWardsDestroyed',
+       'blueFirstBlood', 'blueKills', 'blueDeaths', 'blueAssists',
+       'blueEliteMonsters', 'blueDragons', 'blueHeralds',
+       'blueTowersDestroyed', 'blueTotalGold', 'blueAvgLevel',
+       'blueTotalExperience', 'blueTotalMinionsKilled',
+       'blueTotalJungleMinionsKilled', 'blueGoldDiff', 'blueExperienceDiff', 'blueGoldPerMin','redWardsPlaced', 'redWardsDestroyed',
+       'redFirstBlood', 'redKills', 'redDeaths', 'redAssists',
+       'redEliteMonsters', 'redDragons', 'redHeralds', 'redTowersDestroyed',
+       'redTotalGold', 'redAvgLevel', 'redTotalExperience',
+       'redTotalMinionsKilled', 'redTotalJungleMinionsKilled', 'redGoldDiff',
+       'redExperienceDiff', 'redCSPerMin', 'redGoldPerMin']]
+Y=df["blueWins"]
+
+scaler=StandardScaler()
+scaler.fit(X_num)
+X_scaled=scaler.transform(X_num)
+X_scaled=pd.DataFrame(data=X_scaled,index=X_num.index,columns=X_num.columns)
+X_scaled.head()
+
