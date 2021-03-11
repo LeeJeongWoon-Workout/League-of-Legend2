@@ -1,0 +1,14 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import pandas as pd
+
+os.environ["KAGGLE_USERNAME"]=
+os.environ["KAGGLE_KEY"]=
+
+!kaggle datasets download -d bobbyscience/league-of-legends-diamond-ranked-games-10-min
+!unzip "*.zip"
+!ls
+
+df=pd.read_csv("high_diamond_ranked_10min.csv")
+df.columns
